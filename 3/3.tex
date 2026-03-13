@@ -1,6 +1,3 @@
-%=================================================
-% Economics Coursework Template
-%=================================================
 \documentclass[12pt]{article}
 
 %------------ Packages ------------
@@ -244,12 +241,29 @@ The assumption made regarding $M_t$ is needed since measurement of welfare are d
 
 \newpage
 \section{Example of Strategic Relationships from Nielson, 2021}
-Schools choose price $p_j$ and quality $q_j$ to maximize profits. The profit function of school $j$ is:
+Schools choose price $p_j$ and quality $q_j$ to maximize profit. The profit function of school $j$:
 \begin{equation}
 \pi_j(q,p,\xi) = \left(p_j + v_b^m - MC(q_j)\right) N_m s_j(q,p,\xi) - F_j
 \end{equation}
 
-Where $s_j(q,p,\xi)$ is the market share of school $j$, $v_b^m$ is the voucher per student in market $m$, $MC(q_j)$ is the marginal cost of quality, and $F_j$ is a fixed cost. We have the following properties for shares of students of type k, located at loc, who chooses school j. This aid in our subsequent analysis of strategic relationships.
+We assume an additive discrete choice model (logit). Where the utility of a household $i$ is obtained from attending school $j$ in market $m$ and period $t$:
+\begin{equation}
+u_{ijt}
+=
+x_{jt}\beta
++
+\beta_i q_{jt}
+-
+\alpha_i \, op_{k(i)jt}
++
+\lambda_i d_{loc(i),j}
++
+\xi_{jt}
++
+\epsilon_{ijt},
+\end{equation}
+
+Where $s_j(q,p,\xi)$ is market share of school $j$, $v_b^m$ is voucher per student in market $m$, $MC(q_j)$ is marginal cost, and $F_j$ is a fixed cost. Properties of shares of students of type k, located at loc, who chooses school j aid our subsequent analysis of strategic relationships:
 \begin{equation}
 s_{jk}^{loc}(q,op,\xi)
 =
@@ -288,26 +302,7 @@ x_{rt}\beta
 \frac{\partial s_{jk}}{\partial q_k} < 0.
 \]
 
-This occurs since we use an additive discrete choice model (logit) in the model. Where the household utility for household $i$ obtained from attending school $j$ in market $m$ and period $t$ is given by:
-
-
-\begin{equation}
-u_{ijt}
-=
-x_{jt}\beta
-+
-\beta_i q_{jt}
--
-\alpha_i \, op_{k(i)jt}
-+
-\lambda_i d_{loc(i),j}
-+
-\xi_{jt}
-+
-\epsilon_{ijt},
-\end{equation}
-
-When we aggregate our shares across student types and locations we are able to attain the following relationship for the partials of market share:
+We aggregate market shares across types and locations to attain partials of market shares:
 \begin{equation}
 s_j(q,op,\xi)
 =
@@ -369,21 +364,21 @@ In addition to the properties that we have laid down regarding market share abov
 
 \begin{enumerate}
 
-\item Marginal cost of quality is increasing:
+\item The marginal cost of quality is increasing:
 \[
 MC'(q_j) > 0.
 \]
 
 \item The second-order condition for profit maximization holds:
 \[
-\frac{\partial^2 \pi_j}{\partial a_j^2} < 0.
+\frac{\partial^2 \pi_j}{\partial p_j^2} < 0,\frac{\partial^2 \pi_j}{\partial q_j^2} < 0.
 \]
 
 \item Direct demand effects dominate higher-order cross effects, so that the signs
 of the first-order demand derivatives determine the sign of the profit cross-partials.
 \end{enumerate}
 
-\subsubsection*{Profit Maximization FOC}
+\subsection{Profit Maximization FOC}
 Assuming $MC(q_j)=c_0+c_1 q_j$
 
 Differentiate profits with respect to $p_j$:
@@ -420,15 +415,15 @@ q_j^*
 s_j(q,op,\xi)
 \left[\frac{\partial s_j(q,op,\xi)}{\partial q_j}\right]^{-1}.
 \end{equation}
-
+\subsection{Cross Partials, Strategic Relationships}
+Let's set $F_j = p_j^*+v_b^m-MC(q_j^*)$ and assume that $N_m >0$
 \subsubsection*{1. Own price and own quality: $(p_j,q_j)$}
 
-From
 \[
 \frac{\partial \pi_j}{\partial p_j}
 =
 N_m\left[
-s_j + A_j\frac{\partial s_j}{\partial p_j}
+s_j + F_j\frac{\partial s_j}{\partial p_j}
 \right],
 \]
 differentiate with respect to $q_j$:
@@ -439,9 +434,9 @@ differentiate with respect to $q_j$:
 N_m\left[
 \frac{\partial s_j}{\partial q_j}
 +
-\frac{\partial A_j}{\partial q_j}\frac{\partial s_j}{\partial p_j}
+\frac{\partial F_j}{\partial q_j}\frac{\partial s_j}{\partial p_j}
 +
-A_j\frac{\partial^2 s_j}{\partial q_j \partial p_j}
+F_j\frac{\partial^2 s_j}{\partial q_j \partial p_j}
 \right] \\
 &=
 N_m\left[
@@ -449,11 +444,12 @@ N_m\left[
 -
 MC'(q_j)\frac{\partial s_j}{\partial p_j}
 +
-A_j\frac{\partial^2 s_j}{\partial q_j \partial p_j}
+F_j\frac{\partial^2 s_j}{\partial q_j \partial p_j}
 \right].
 \end{align}
 
-Since $\frac{\partial s_j}{\partial q_j}>0$ and $\frac{\partial s_j}{\partial p_j}<0$, the first two terms are positive when $MC'(q_j)>0$. Hence
+Since $\frac{\partial s_j}{\partial q_j}>0$ and $\frac{\partial s_j}{\partial p_j}<0$, the first two terms are positive when $MC'(q_j)>0$. The last term the negative effect of price on demand becomes weaker as quality rises so it is dominated by the direct effect. 
+
 \[
 \frac{\partial^2 \pi_j}{\partial q_j \partial p_j}>0.
 \]
@@ -470,11 +466,11 @@ Differentiate $\partial \pi_j / \partial p_j$ with respect to $p_k$:
 N_m\left[
 \frac{\partial s_j}{\partial p_k}
 +
-A_j\frac{\partial^2 s_j}{\partial p_k \partial p_j}
+F_j\frac{\partial^2 s_j}{\partial p_k \partial p_j}
 \right].
 \end{align}
 
-Since $\frac{\partial s_j}{\partial p_k}>0$, the cross-derivative is positive under the standard assumption that the direct demand-shifting effect dominates:
+$\frac{\partial s_j}{\partial p_k}>0$, the cross-derivative is positive under the assumption that the direct effect for a shift in demand dominates:
 \[
 \frac{\partial^2 \pi_j}{\partial p_k \partial p_j}>0.
 \]
@@ -483,12 +479,11 @@ Therefore, prices are \textbf{strategic complements}.
 
 \subsubsection*{3. Own quality and rival quality: $(q_j,q_k)$}
 
-From
 \[
 \frac{\partial \pi_j}{\partial q_j}
 =
 N_m\left[
-A_j\frac{\partial s_j}{\partial q_j}
+F_j\frac{\partial s_j}{\partial q_j}
 -
 MC'(q_j)s_j
 \right],
@@ -499,13 +494,13 @@ differentiate with respect to $q_k$:
 \frac{\partial^2 \pi_j}{\partial q_k \partial q_j}
 &=
 N_m\left[
-A_j\frac{\partial^2 s_j}{\partial q_k \partial q_j}
+F_j\frac{\partial^2 s_j}{\partial q_k \partial q_j}
 -
 MC'(q_j)\frac{\partial s_j}{\partial q_k}
 \right].
 \end{align}
 
-Since $\frac{\partial s_j}{\partial q_k}<0$, the second term is positive. Hence
+$\frac{\partial s_j}{\partial q_k}<0$, the second term is positive.
 \[
 \frac{\partial^2 \pi_j}{\partial q_k \partial q_j}>0.
 \]
@@ -522,11 +517,11 @@ Differentiate $\partial \pi_j / \partial p_j$ with respect to $q_k$:
 N_m\left[
 \frac{\partial s_j}{\partial q_k}
 +
-A_j\frac{\partial^2 s_j}{\partial q_k \partial p_j}
+F_j\frac{\partial^2 s_j}{\partial q_k \partial p_j}
 \right].
 \end{align}
 
-Since $\frac{\partial s_j}{\partial q_k}<0$, the cross-derivative is negative under the standard assumption that the direct demand-loss effect dominates:
+$\frac{\partial s_j}{\partial q_k}<0$, the cross-derivative is negative under the assumption that the direct effect of demand dominates:
 \[
 \frac{\partial^2 \pi_j}{\partial q_k \partial p_j}<0.
 \]
@@ -541,13 +536,13 @@ Differentiate $\partial \pi_j / \partial q_j$ with respect to $p_k$:
 \frac{\partial^2 \pi_j}{\partial p_k \partial q_j}
 &=
 N_m\left[
-A_j\frac{\partial^2 s_j}{\partial p_k \partial q_j}
+F_j\frac{\partial^2 s_j}{\partial p_k \partial q_j}
 -
 MC'(q_j)\frac{\partial s_j}{\partial p_k}
 \right].
 \end{align}
 
-Since $\frac{\partial s_j}{\partial p_k}>0$, the second term is negative. Hence
+$\frac{\partial s_j}{\partial p_k}>0$, the second term is negative.
 \[
 \frac{\partial^2 \pi_j}{\partial p_k \partial q_j}<0.
 \]
@@ -590,42 +585,31 @@ Therefore, own quality and rival price are \textbf{strategic substitutes}.
 
 Price and quality are strategic complements.
 
-Higher quality increases the willingness to pay of families. As a result,
-an increase in quality raises the profitability of increasing price. Conversely,
-if the school charges a higher price, it has stronger incentives to provide higher
-quality to justify the price and maintain enrollment.
+Higher quality increases the willingness to pay of families. As a result, an increase in quality increases the profitability of increasing the price. In contrast, if the school charges a higher price, it has stronger incentives to provide higher quality to justify the price and maintain enrollment.
 
 \paragraph{(2) Prices: $(p_j,p_k)$}
 
 Prices are strategic complements.
 
-When a rival school increases its price, some students switch to school $j$,
-which reduces the elasticity of demand faced by school $j$. With less elastic
-demand, school $j$ can profitably increase its own price.
+When a rival school increases its price, some students switch to school $j$, which reduces the elasticity of demand for school $j$. With less elastic demand, school $j$ can profitably increase its own price.
 
 \paragraph{(3) Qualities: $(q_j,q_k)$}
 
 Qualities are strategic complements.
 
-If rival schools improve their quality, school $j$ loses demand unless it also
-improves quality. Therefore, an increase in rival quality increases the incentive
-for school $j$ to raise its own quality.
+If rival schools improves its quality, school $j$ loses demand unless it also improves quality. This creates an  incentive for school $j$ to raise its own quality.
 
 \paragraph{(4) Own price and rival quality: $(p_j,q_k)$}
 
 Own price and rival quality are strategic substitutes.
 
-If a rival school improves its quality, it becomes more attractive to students,
-which reduces demand for school $j$. In response, school $j$ lowers its price to
-remain competitive.
+If a rival school improves its quality, it becomes more attractive to students, which reduces demand for school $j$. In response, school $j$ lowers its price to remain competitive.
 
 \paragraph{(5) Own quality and rival price: $(q_j,p_k)$}
 
 Own quality and rival price are strategic substitutes.
 
-If rival schools increase their prices, some students shift toward school $j$
-even without improvements in quality. As a result, school $j$ faces weaker
-incentives to invest in quality when rival prices increase.
+If rival schools increase their prices, some students shift toward school $j$ even without improvements in quality. As a result, school $j$ need not increase its quality in order to remain competitive. In fact, the school is likely to reduce quality in order to become more profitable.
 
 
 
@@ -635,5 +619,3 @@ incentives to invest in quality when rival prices increase.
 
 
 \end{document}
-
-
