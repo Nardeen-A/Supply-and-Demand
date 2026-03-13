@@ -1,0 +1,221 @@
+%=================================================
+% Economics Coursework Template
+%=================================================
+\documentclass[12pt]{article}
+
+%------------ Packages ------------
+\usepackage[margin=1in]{geometry}   % Page layout
+\usepackage{lmodern}                % Latin Modern (LaTeX default font)
+\usepackage{amsmath, amssymb}       % Math symbols
+\usepackage{booktabs}               % Professional tables
+\usepackage{graphicx}               % Figures
+\usepackage{natbib}                 % References
+\usepackage[hidelinks]{hyperref}    % Hyperlinks
+\usepackage{fancyhdr}               % Headers/footers
+\usepackage{setspace}               % Line spacing
+\usepackage{titlesec}               % Section formatting
+\usepackage{geometry}
+\usepackage{comment} 
+\usepackage{xcolor} 
+\usepackage{amsthm} 
+\usepackage{float} 
+\usepackage{dcolumn}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{multicol}
+\usetikzlibrary{arrows.meta,positioning,fit,calc}
+\usepackage{subcaption}
+\tikzset{
+  var/.style={rectangle, draw, rounded corners, minimum width=18mm, minimum height=7mm, align=center},
+  latent/.style={ellipse, draw, dashed, minimum width=18mm, minimum height=7mm, align=center},
+  controlarrow/.style={->, dashed, draw=red!60},
+  lightbluearrow/.style={->, dashed, draw=blue!40} % NEW style
+}
+
+%------------ Page Style ------------
+\rhead{\thepage}
+\lhead{ECO1465 Weekly Report 1}
+
+%------------ Section Formatting ------------
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries\itshape}{\thesubsection}{0.5em}{}
+\titlespacing*{\subsection}{0pt}{1.5ex plus 1ex minus .2ex}{1em} % spacing before/after subsections
+
+
+%------------ Begin Document ------------
+\begin{document}
+% Title Page only
+\begin{titlepage}
+    \thispagestyle{empty} % no headers/footers
+    \centering
+    \vspace*{\fill}
+
+    {\Large \textbf{BLP} \par}
+
+    \vspace{3em}
+    {\large Nardeen Abdulkareem \par}
+    {\normalsize The University of Toronto \par}
+    {\normalsize \today \par}
+    {\texttt{nardeen.abdulkareem@mail.utoronto.ca} \par}
+
+    \vspace*{\fill}
+\end{titlepage}
+\clearpage
+
+\section{Mis-specified Models}
+\begin{table}[!htbp]\centering
+\caption{Logit Demand Estimation Results}
+\label{tab:demand_results}
+\begin{threeparttable}
+\footnotesize
+\begin{tabular}{lcc}
+\toprule
+ & (1) OLS & (2) IV (2SLS) \\
+\midrule
+Price ($\alpha$) 
+    & -0.804*** 
+    & -1.791*** \\
+    & (0.054) 
+    & (0.069) \\
+\\
+$x$ 
+    & 0.826*** 
+    & 0.946*** \\
+    & (0.029) 
+    & (0.033) \\
+\\
+Satellite
+    & 0.950*** 
+    & 3.558*** \\
+    & (0.141) 
+    & (0.187) \\
+\\
+Wired
+    & 0.921*** 
+    & 3.512*** \\
+    & (0.140) 
+    & (0.184) \\
+\midrule
+Observations & 2400 & 2400 \\
+$R^2$ & 0.286 & 0.144 \\
+Estimator & OLS & IV-2SLS \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\item Instrumented for price using cost shifter $w$. Robust standard errors. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.
+\end{tablenotes}
+
+\end{threeparttable}
+\end{table}
+
+The OLS and IV estimates for the parameter of interest vary wildly. This is particularly clear with the price coefficient. Under OLS the price coefficient $\alpha$ is far larger than the true value of the price parameter and the estimated value using 2SLS. This is due to a endogenous price which present in the OLS model. Instrumenting for price using a cost shifter such as $\omega$ alleviates the endogenous price present when estimating parameters using OLS. The estimates for Satellite and Wired also increase, since price endogeneity influences how variation in prices and product characteristics is attributed to consumer utility. Once we instrument for prices, the model is able to capture more variation in demand which is attributed to product characteristics rather than price. This correctly implies that the 2SLS model reflects that consumers have much high sensitivity towards prices and product characteristics. 
+
+\section{Correctly Specified Models}
+\vspace{-0.1in}
+\begin{table}[!htbp]\centering
+\caption{Firm-Level Own-Price Elasticities}
+\begin{threeparttable}
+\footnotesize
+\begin{tabular}{lcc}
+\toprule
+Firm & Estimated Elasticity & True Elasticity \\
+\midrule
+0 & -3.834 & -4.139 \\
+1 & -3.881 & -4.184 \\
+2 & -4.074 & -4.142 \\
+3 & -4.088 & -4.160 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize
+\item Estimated elasticities of joint S \& D model. True elasticities of parameters from simulated data.
+\end{tablenotes}
+
+\end{threeparttable}
+\end{table}
+
+My preferred specification is the jointly estimated demand and supply model since it incorporates both the demand side and supply equations simultaneously into the equilibrium estimation. This model improves efficiency in the estimation of the parameters and yields information related to the supply sided measurements. The model also account for an endogenous price using the supply sided shifters, rival firms product characteristics, and rival firm cost shifters for the estimation of demand. Supply sided instruments used in the estimation include, own and rival firms demand shifter or product attributes. The joint model yields estimated elasticities which are very close to the true elasticities used to generate the simulated data. Although the estimated elasticities are slightly smaller in magnitude, they closely match the true values and correctly capture the overall level of price sensitivity in the data.
+
+\begin{table}[H]
+\centering
+\caption{BLP Estimation Results}
+\begin{tabular}{lcccc}
+\toprule
+ & Demand & Optimal Demand & Joint S \& D & Optimal Joint S \& D \\
+\midrule
+\textit{Demand parameters} \\
+Price ($\alpha$) 
+    & -1.8371 & -1.8786 & -1.8794 & -1.8706 \\
+    & (2.5111) & (0.0765) & (0.1148) & (0.0849) \\
+x
+    & 0.9716 & 0.9929 & 0.9928 & 0.9919 \\
+    & (1.4623) & (0.0367) & (0.0537) & (0.0371) \\
+Satellite
+    & 3.5620 & 3.5811 & 3.5844 & 3.5747 \\
+    & (0.3228) & (0.1982) & (0.2116) & (0.2179) \\
+Wired
+    & 3.6178 & 3.7130 & 3.7153 & 3.6923 \\
+    & (5.6523) & (0.2014) & (0.2793) & (0.2216) \\
+\addlinespace
+\textit{Supply parameters} \\
+Constant
+    & --- & --- & 0.4816 & 0.4772 \\
+    & --- & --- & (0.0180) & (0.0229) \\
+w
+    & --- & --- & 0.2492 & 0.2558 \\
+    & --- & --- & (0.0073) & (0.0318) \\
+\midrule
+\multicolumn{5}{l}{\footnotesize Robust standard errors in parentheses.} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Merger}
+In our single product firm framework, each firm maximizes profits by internalizing the prices of rival firms. Firms compete under Bertrand competition. As such, the FOC condition for a firms profit maximization problem indicates that equilibrium prices are determined by the markup a firm can set on its product, the elasticity of demand for the good, and the substitution pattern across products. Prices are strategic complements because when one firm raises its price, rival firms face less competitive pressure and the demand they face becomes less elastic. As a result, the rival firm will be able to raise its prices when a rival firm increases its price. In theory, the magnitude of a firms response to a rivals price increase is determined by the proximity of a firm to a rival with a close substitute product. An high degree of substitutability between two product will yield a larger increase in price of their own good in response to an increase to the price of a rival firms good. This is because in a price setting environment firms competed strongly with each other, so each firm had an incentive to keep prices relatively low to avoid losing customers to the other.
+
+If firms 1 and 2 merge, then the price of these goods rise since goods 1 and 2 no longer need to compete with one another for a share of the market. In this case, some consumers may switch to products 3 and 4 (wired services) so firms 3 and 4 can also raise their prices slightly to capture larger profits. Since these goods are close substitutes, the increase in price (for goods 1 and 2) observed will be larger than the increase in price for goods 1 and 3 if firms 1 and 3 merged. This is captured bellow in our model. 
+
+\begin{table}[h!]
+\centering
+\caption{Comparison of Average Price Changes Across Merger Scenarios}
+\begin{tabular}{lcccc}
+\hline
+Product & Baseline P & $\Delta P$ (Merger 1--2) & $\Delta P$ (Merger 1--3) & $\Delta P$ (Merger 1--2) w/ Efficiency\\
+\hline
+1 & 2.7487 & 0.2613 & 0.1235 & 0.0612 \\
+2 & 2.7300 & 0.2744 & 0.0126 & 0.0751 \\
+3 & 2.7176 & 0.0093 & 0.1312 & -0.0001 \\
+4 & 2.7312 & 0.0098 & 0.0083 & 0.0000 \\
+\hline
+\end{tabular}
+\end{table}
+
+When firms 1 and 2 merge, prices of goods 1 and 2 increase substantially by around 9 to 10\%, while prices of goods 3 and 4 change very little. This is attributed to high substitutability between products 1 and 2. More interestingly, when the merger occurs between firms 1 and 3, where these two firms provide products which are not close substitutes to one another. The change in prices are more modest, at around 4 to 5\%, when compared to the change in prices due to the merger of firms 1 and 2. This indicates that goods 1 and 3 are weaker substitutes than goods 1 and 2.
+
+So far we have no explored a reduction in the marginal cost associate with producing a good due to a merger. The efficiencies that occur as a result of a merger can be attributed to factors such as improved technology, economies of scale, or reduced redundancies. This increase in efficiency is unlikely to materialize as welfare enhancing on the consumer side. Firms benefit from lower production costs and potentially higher profits. Since total welfare equals consumer surplus plus producer surplus, the reduction in production costs represents a real efficiency gain that on the producer side. A large marginal cost reductions can lead to higher total welfare through increased producer surplus which would make the merger welfare enhancing.
+
+\begin{table}[h!]
+\centering
+\caption{Welfare Effects of the Merger Between Firms 1 and 2 with a 15\% Cost Reduction}
+\begin{tabular}{l c}
+\hline
+ & \textbf{Change} \\
+\hline
+Consumer Surplus & -0.0132 \\
+Producer Profits & 0.1118 \\
+Total Welfare & 0.0986 \\
+\hline
+\end{tabular}
+\end{table}
+
+The model predicts that with increased efficiency due to a merger between firms 1 and 2, prices of goods 1 and 2 rise by an amount substantially smaller had there not been any increased efficiency. Goods 3 and 4 do not exhibit any changes in prices in this case. The increase in the prices of goods 1 and 2 influences the consumer surplus negatively since a price increase hurts consumers when there is not adequate substitute product which they can chose to purchase instead. Regardless, a reduction in marginal cost can cause a merger to be welfare enhancing because it allows the firm to produce the good more efficiently. This increase in efficiency offsets the increase in mark ups caused by internalized substitution between the merged products. Since we observe both an increase in prices and a reduction in costs, the firm enjoys a larger producer surplus which outweighs the negative change in consumer surplus. Therefore, since the efficiency gains are large enough, the merger increases total welfare even if it increases market power.
+
+The assumption made regarding $M_t$ is needed since measurement of welfare are dependant on the size of the market or the number of consumers in each market. Prices are determined in the first order conditions by estimating market shares which are normalized to the size of the market which causes markups to not depend on the number of consumers in the market. However, when we aggregate over consumers in order to attain welfare figures, the size of a market determines how salient the impact of a merger may be. For the sake of keeping a parsimonious analysis we fix $M_t = 1$
+
+\end{document}
+
+
+
+
