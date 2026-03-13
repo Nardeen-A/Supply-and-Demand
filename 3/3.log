@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.12.2)  13 MAR 2026 02:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.12.2)  13 MAR 2026 13:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -785,8 +785,7 @@ File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count331
 \l__pdf_internal_box=\box116
-)
-No file 3.aux.
+) (3.aux)
 \openout1 = `3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
@@ -807,6 +806,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 48.
 LaTeX Font Info:    ... okay on input line 48.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 48.
 LaTeX Font Info:    ... okay on input line 48.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -863,6 +863,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package hyperref Info: Link coloring OFF on input line 48.
+ (3.out) (3.out)
 \@outlinefile=\write5
 \openout5 = `3.out'.
 
@@ -870,10 +871,10 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
 61.
- (D:\Tex\tex/latex/lm\ot1lmtt.fd
+
+(D:\Tex\tex/latex/lm\ot1lmtt.fd
 File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-[1
+) [1
 
 {C:/Users/narde/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{D:/Tex/fonts/
 enc/dvips/lm/lm-rm.enc}{D:/Tex/fonts/enc/dvips/lm/lm-rmtt.enc}]
@@ -1069,40 +1070,50 @@ Overfull \hbox (27.19632pt too wide) in paragraph at lines 183--193
  [][] 
  []
 
-[3] [4] (3.aux)
+[3]
+<1.png, id=55, 498.663pt x 498.663pt>
+File: 1.png Graphic file (type png)
+<use 1.png>
+Package pdftex.def Info: 1.png  used on input line 225.
+(pdftex.def)             Requested size: 155.02pt x 155.01764pt.
+<2.png, id=57, 498.663pt x 354.123pt>
+File: 2.png Graphic file (type png)
+<use 2.png>
+Package pdftex.def Info: 2.png  used on input line 230.
+(pdftex.def)             Requested size: 211.38832pt x 150.11392pt.
+<3.png, id=58, 380.1402pt x 334.6101pt>
+File: 3.png Graphic file (type png)
+<use 3.png>
+Package pdftex.def Info: 3.png  used on input line 238.
+(pdftex.def)             Requested size: 155.02pt x 136.4558pt.
+ [4 <./1.png> <./2.png> <./3.png>] [5{D:/Tex/fonts/enc/dvips/lm/lm-mathsy.enc}{
+D:/Tex/fonts/enc/dvips/lm/lm-mathex.enc}] [6] [7] [8] [9] (3.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `3.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `3.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  84BFA3EBFB876F72E14924DF9F0FAC11;398.
+Package rerunfilecheck Info: File `3.out' has not changed.
+(rerunfilecheck)             Checksum: D0818A0E2F946DE6AA3A72E65313D11D;820.
  ) 
 Here is how much of TeX's memory you used:
- 24323 strings out of 474486
- 440157 string characters out of 5761577
- 1937542 words of memory out of 5000000
- 46175 multiletter control sequences out of 15000+600000
+ 24414 strings out of 474486
+ 441522 string characters out of 5761577
+ 1939542 words of memory out of 5000000
+ 46229 multiletter control sequences out of 15000+600000
  601935 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,9n,87p,1208b,476s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<D:/Tex/fonts/type1/public/lm/lmbx12.pfb><D:/Tex/fonts/type1/public/lm/lmmi10
-.pfb><D:/Tex/fonts/type1/public/lm/lmmi12.pfb><D:/Tex/fonts/type1/public/lm/lmm
-i8.pfb><D:/Tex/fonts/type1/public/lm/lmr10.pfb><D:/Tex/fonts/type1/public/lm/lm
-r12.pfb><D:/Tex/fonts/type1/public/lm/lmr7.pfb><D:/Tex/fonts/type1/public/lm/lm
-ri12.pfb><D:/Tex/fonts/type1/public/lm/lmtt12.pfb>
-Output written on 3.pdf (5 pages, 176916 bytes).
+ 84i,9n,87p,1208b,549s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<D:/Tex/fonts/type1/public/lm/lmbx12.pfb><D:/Tex/fonts/type1/public/lm/lmex10
+.pfb><D:/Tex/fonts/type1/public/lm/lmmi10.pfb><D:/Tex/fonts/type1/public/lm/lmm
+i12.pfb><D:/Tex/fonts/type1/public/lm/lmmi6.pfb><D:/Tex/fonts/type1/public/lm/l
+mmi8.pfb><D:/Tex/fonts/type1/public/lm/lmr10.pfb><D:/Tex/fonts/type1/public/lm/
+lmr12.pfb><D:/Tex/fonts/type1/public/lm/lmr7.pfb><D:/Tex/fonts/type1/public/lm/
+lmr8.pfb><D:/Tex/fonts/type1/public/lm/lmri12.pfb><D:/Tex/fonts/type1/public/lm
+/lmsy10.pfb><D:/Tex/fonts/type1/public/lm/lmsy8.pfb><D:/Tex/fonts/type1/public/
+lm/lmtt12.pfb>
+Output written on 3.pdf (10 pages, 334646 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
- 13 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 190 PDF objects out of 1000 (max. 8388607)
+ 42 named destinations out of 1000 (max. 500000)
+ 68 words of extra memory for PDF output out of 10000 (max. 10000000)
 
